@@ -144,11 +144,11 @@
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                2
+                4
                 <span>posts</span>
             </div>
             <div class="article-info-block">
-                2
+                4
                 <span>tags</span>
             </div>
         </div>
@@ -197,6 +197,275 @@
 
             
             <section id="main">
+    <article id="post-export-default에-대해" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2016/08/18/export-default에-대해/">export default에 대해</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2016/08/18/export-default에-대해/">
+            <time datetime="2016-08-17T15:50:33.000Z" itemprop="datePublished">2016-08-18</time>
+        </a>
+    </div>
+
+
+                        
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/ES6/">ES6</a>, <a class="tag-link" href="/tags/standard/">standard</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <ul>
+<li><a href="http://www.2ality.com/2014/09/es6-modules-final.html" target="_blank" rel="external">http://www.2ality.com/2014/09/es6-modules-final.html</a> 를 번역한 글입니다.</li>
+</ul>
+<p>ES6의 module 문법 표준에 따르면 export 는 2가지 종류가 있다. named exports (모듈 당 여러 개의 export)와 default exports (모듈 당 하나의 export)가 그것이다.</p>
+<h2 id="named-exports"><a href="#named-exports" class="headerlink" title="named exports"></a>named exports</h2><p>하나의 module 파일이라도 이 중 일부만 필요로 하는 경우가 있을 수 있다. 예를 들어 하나의 함수 혹은 하나의 클래스 만 사용하고 싶은 경우이다. 이런 때 es6 module 문법은 다음과 같은 형식으로 이를 가능하게 한다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">//------ lib.js ------</div><div class="line">export const sqrt = Math.sqrt;</div><div class="line">export function square(x) &#123;</div><div class="line">    return x * x;</div><div class="line">&#125;</div><div class="line">export function diag(x, y) &#123;</div><div class="line">    return sqrt(square(x) + square(y));</div><div class="line">&#125;</div><div class="line"></div><div class="line">//------ main.js ------</div><div class="line">import &#123; square, diag &#125; from &apos;lib&apos;;</div><div class="line">console.log(square(11)); // 121</div><div class="line">console.log(diag(4, 3)); // 5</div></pre></td></tr></table></figure>
+<p>또한 이런 형식도 가능하다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">//------ main.js ------</div><div class="line">import * as lib from &apos;lib&apos;;</div><div class="line">console.log(lib.square(11)); // 121</div><div class="line">console.log(lib.diag(4, 3)); // 5</div></pre></td></tr></table></figure>
+<h2 id="default-exports"><a href="#default-exports" class="headerlink" title="default exports"></a>default exports</h2><p>node 개발자는 변수 하나만 export 하는 등의 방식이 빈번히 사용되는데, front end 개발자의 경우는 constructor나 class를 export 하는 경우가 많다. 이런 경우 하나의 module이 하나의 export만 갖는 경우가 되는데 이런 때 사용할 수 있는 것이 default exports 이다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">//------ myFunc.js ------</div><div class="line">export default function () &#123; ... &#125;;</div><div class="line"></div><div class="line">//------ main1.js ------</div><div class="line">import myFunc from &apos;myFunc&apos;;</div><div class="line">myFunc();</div><div class="line">//------ MyClass.js ------</div><div class="line">export default class &#123; ... &#125;;</div><div class="line"></div><div class="line">//------ main2.js ------</div><div class="line">import MyClass from &apos;MyClass&apos;;</div><div class="line">let inst = new MyClass();</div></pre></td></tr></table></figure>
+<p>es6에선 _가 default exports를 의미하며, each나 forEach는 named exports를 의미한다. 따라서 다음과 같이 default exports와 named exports를 동시에 얻는 방법도 가능하다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">//------ underscore.js ------</div><div class="line">export default function (obj) &#123;</div><div class="line">    ...</div><div class="line">&#125;;</div><div class="line">export function each(obj, iterator, context) &#123;</div><div class="line">    ...</div><div class="line">&#125;</div><div class="line">export &#123; each as forEach &#125;;</div><div class="line"></div><div class="line">//------ main.js ------</div><div class="line">import _, &#123; each &#125; from &apos;underscore&apos;;</div><div class="line">...</div></pre></td></tr></table></figure>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://kunmyonchoi.github.io/2016/08/18/export-default에-대해/" data-id="cirz2x0mg0000u02vyi5s33xy" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="http://kunmyonchoi.github.io/2016/08/18/export-default에-대해/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://kunmyonchoi.github.io/2016/08/18/export-default에-대해/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
+    <article id="post-Easy-Array-Cloning" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2016/08/18/Easy-Array-Cloning/">Easy Array Cloning</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2016/08/18/Easy-Array-Cloning/">
+            <time datetime="2016-08-17T15:25:05.000Z" itemprop="datePublished">2016-08-18</time>
+        </a>
+    </div>
+
+
+                        
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/tip/">tip</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p>React를 사용하다 보면 immutable 이라는 단어를 많이 보게 됩니다.</p>
+<p>pure function으로 previous state와 action으로 next state를 생성하는 과정에서 이전 상태의 일부 값을 변경하는 것이 아니라 완전히 새로운 객체를 생성해 내게 됩니다.</p>
+<p>ReactElement 코드를 보면 다음과 같은 구문을 볼 수 있는데, 이는 Array를 복사한 새로운 Clone array를 만들어 내는 역할을 합니다.</p>
+<p><code>var shadowChildren = props.children.slice(0);</code></p>
+<p>이렇게 복사된 객체가 이전과 동일한지 아래와 같이 확인해 볼 수 있다.</p>
+<iframe height="265" scrolling="no" src="//codepen.io/KunmyonChoi/embed/zBbajy/?height=265&theme-id=0&default-tab=result&embed-version=2" frameborder="no" allowtransparency="true" allowfullscreen="true" style="width: 100%;">See the Pen <a href="http://codepen.io/KunmyonChoi/pen/zBbajy/" target="_blank" rel="external">Array clone</a> by Kunmyon Choi (<a href="http://codepen.io/KunmyonChoi" target="_blank" rel="external">@KunmyonChoi</a>) on <a href="http://codepen.io" target="_blank" rel="external">CodePen</a>.<br></iframe>
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://kunmyonchoi.github.io/2016/08/18/Easy-Array-Cloning/" data-id="cirz2x0og0009u02vqpe4vn7q" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="http://kunmyonchoi.github.io/2016/08/18/Easy-Array-Cloning/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://kunmyonchoi.github.io/2016/08/18/Easy-Array-Cloning/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
     <article id="post-ES6의-7번째-타입-Symbol" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -265,7 +534,7 @@
 
 </div>
 
-    <a data-url="http://kunmyonchoi.github.io/2016/08/18/ES6의-7번째-타입-Symbol/" data-id="cirz1nhi90002qi2v98il1bu4" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://kunmyonchoi.github.io/2016/08/18/ES6의-7번째-타입-Symbol/" data-id="cirz2x0o80007u02vofbi7hj4" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -395,7 +664,7 @@
 
 </div>
 
-    <a data-url="http://kunmyonchoi.github.io/2016/08/04/hello-world/" data-id="cirz1nhho0000qi2vxctp4qhu" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://kunmyonchoi.github.io/2016/08/04/hello-world/" data-id="cirz2x0ny0005u02vy8lfqhqr" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -485,6 +754,44 @@
                     <li>
                         
                         <div class="item-thumbnail">
+                            <a href="/2016/08/18/export-default에-대해/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2016/08/18/export-default에-대해/" class="title">export default에 대해</a></p>
+                            <p class="item-date"><time datetime="2016-08-17T15:50:33.000Z" itemprop="datePublished">2016-08-18</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2016/08/18/Easy-Array-Cloning/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2016/08/18/Easy-Array-Cloning/" class="title">Easy Array Cloning</a></p>
+                            <p class="item-date"><time datetime="2016-08-17T15:25:05.000Z" itemprop="datePublished">2016-08-18</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
                             <a href="/2016/08/18/ES6의-7번째-타입-Symbol/" class="thumbnail">
     
     
@@ -531,7 +838,7 @@
     <div class="widget-wrap">
         <h3 class="widget-title">archives</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a><span class="archive-list-count">2</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a><span class="archive-list-count">4</span></li></ul>
         </div>
     </div>
 
@@ -540,7 +847,7 @@
     <div class="widget-wrap">
         <h3 class="widget-title">tags</h3>
         <div class="widget">
-            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/">ES6</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Standard/">Standard</a><span class="tag-list-count">1</span></li></ul>
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/">ES6</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Standard/">Standard</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/standard/">standard</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tip/">tip</a><span class="tag-list-count">1</span></li></ul>
         </div>
     </div>
 
@@ -549,7 +856,7 @@
     <div class="widget-wrap">
         <h3 class="widget-title">tag cloud</h3>
         <div class="widget tagcloud">
-            <a href="/tags/ES6/" style="font-size: 10px;">ES6</a> <a href="/tags/Standard/" style="font-size: 10px;">Standard</a>
+            <a href="/tags/ES6/" style="font-size: 20px;">ES6</a> <a href="/tags/Standard/" style="font-size: 10px;">Standard</a> <a href="/tags/standard/" style="font-size: 10px;">standard</a> <a href="/tags/tip/" style="font-size: 10px;">tip</a>
         </div>
     </div>
 
