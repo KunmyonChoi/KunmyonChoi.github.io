@@ -15,7 +15,7 @@ ReactJS가 유명세를 타면서 많은 사람들이 ReactJS 기반의 앱 개"
 <meta property="og:description" content="ES6 + Webpack + Babel React 개발 환경 꾸미기참고) Setting up React for ES6 with Webpack and Babel
 본 글은 React 개발 환경을 처음부터 스스로 할 수 있도록 경험을 나누어 준 링크의 원문에 대한 번역을 기반으로 합니다.
 ReactJS가 유명세를 타면서 많은 사람들이 ReactJS 기반의 앱 개">
-<meta property="og:updated_time" content="2016-08-29T13:42:15.000Z">
+<meta property="og:updated_time" content="2016-08-29T13:47:23.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Setup React with webpack and babel">
 <meta name="twitter:description" content="ES6 + Webpack + Babel React 개발 환경 꾸미기참고) Setting up React for ES6 with Webpack and Babel
@@ -151,11 +151,11 @@ ReactJS가 유명세를 타면서 많은 사람들이 ReactJS 기반의 앱 개"
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                5
+                6
                 <span>posts</span>
             </div>
             <div class="article-info-block">
-                4
+                7
                 <span>tags</span>
             </div>
         </div>
@@ -231,7 +231,7 @@ ReactJS가 유명세를 타면서 많은 사람들이 ReactJS 기반의 앱 개"
                         
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/React/">React</a>
+        <a class="tag-link" href="/tags/Babel/">Babel</a>, <a class="tag-link" href="/tags/Build/">Build</a>, <a class="tag-link" href="/tags/ES6/">ES6</a>, <a class="tag-link" href="/tags/React/">React</a>
     </div>
 
                     </div>
@@ -241,7 +241,7 @@ ReactJS가 유명세를 타면서 많은 사람들이 ReactJS 기반의 앱 개"
         <div class="article-entry" itemprop="articleBody">
         
             
-            <h3 id="ES6-Webpack-Babel-React-개발-환경-꾸미기"><a href="#ES6-Webpack-Babel-React-개발-환경-꾸미기" class="headerlink" title="ES6 + Webpack + Babel React 개발 환경 꾸미기"></a>ES6 + Webpack + Babel React 개발 환경 꾸미기</h3><p>참고) <a href="https://www.twilio.com/blog/2015/08/setting-up-react-for-es6-with-webpack-and-babel-2.html" target="_blank" rel="external">Setting up React for ES6 with Webpack and Babel</a></p>
+            <h1 id="ES6-Webpack-Babel-React-개발-환경-꾸미기"><a href="#ES6-Webpack-Babel-React-개발-환경-꾸미기" class="headerlink" title="ES6 + Webpack + Babel React 개발 환경 꾸미기"></a>ES6 + Webpack + Babel React 개발 환경 꾸미기</h1><p>참고) <a href="https://www.twilio.com/blog/2015/08/setting-up-react-for-es6-with-webpack-and-babel-2.html" target="_blank" rel="external">Setting up React for ES6 with Webpack and Babel</a></p>
 <p>본 글은 React 개발 환경을 처음부터 스스로 할 수 있도록 경험을 나누어 준 링크의 원문에 대한 번역을 기반으로 합니다.</p>
 <p>ReactJS가 유명세를 타면서 많은 사람들이 ReactJS 기반의 앱 개발을 배우기 위해 뛰어들고 있지만 ES6와 web pack 그리고 babel을 조합한 개발 환경에 필요한 많은 조합들은 여전히 먆은 개발자 들을 괘롭게 하고 있는 듯 합니다.</p>
 <p>여기서 개발자 들이 혼란을 겪을 수 있는 부분이 있는데, ReactJS 개발을 위해 반드시 webpack이나 babel을 사용해야 하는 것은 아니라는 점입니다.</p>
@@ -279,7 +279,7 @@ ReactJS가 유명세를 타면서 많은 사람들이 ReactJS 기반의 앱 개"
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&lt;!doctype html&gt;</div><div class="line">&lt;html&gt;</div><div class="line">  &lt;head&gt;</div><div class="line">    &lt;meta charset=&quot;UTF-8&quot;&gt;</div><div class="line">    &lt;title&gt;Hello React&lt;/title&gt;</div><div class="line">  &lt;/head&gt;</div><div class="line">  &lt;body&gt;</div><div class="line">    &lt;div id=&quot;hello&quot;&gt;&lt;/div&gt;</div><div class="line">    &lt;div id=&quot;world&quot;&gt;&lt;/div&gt;</div><div class="line">    &lt;script src=&quot;app.js&quot;&gt;&lt;/script&gt;</div><div class="line">  &lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
 <p>자. 이제 web pack dev server를 실행해 우리가 작성한 컴포넌트가 웹 페이지 상에서 어떻게 보이는지 확인할 순서다.</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">webpack-dev-server --progress --colors</div></pre></td></tr></table></figure>
-<p>이제 “<a href="http://localhost:8080/webpack-dev-server/”" target="_blank" rel="external">http://localhost:8080/webpack-dev-server/”</a> 주소에 접속해 브라우저에서 보면 첫 React 앱이 화면에 보여지고 있을 것이다.</p>
+<p>이제 “<a href="http://localhost:8080/webpack-dev-server/" target="_blank" rel="external">http://localhost:8080/webpack-dev-server/</a>” 주소에 접속해 브라우저에서 보면 첫 React 앱이 화면에 보여지고 있을 것이다.</p>
 
         
         </div>
@@ -290,7 +290,7 @@ ReactJS가 유명세를 타면서 많은 사람들이 ReactJS 기반의 앱 개"
 
 </div>
 
-    <a data-url="http://kunmyonchoi.github.io/2016/08/26/Setup-React-with-webpack-and-babel/" data-id="cisg3h5wc0008yk2v0bycd2lj" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://kunmyonchoi.github.io/2016/08/26/Setup-React-with-webpack-and-babel/" data-id="cisg3porf00020k2vinac0gux" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -367,6 +367,15 @@ ReactJS가 유명세를 타면서 많은 사람들이 ReactJS 기반의 앱 개"
         
 <nav id="article-nav">
     
+        <a href="/2016/08/29/npm-global-install-troubleshooting/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Newer</strong>
+            <div class="article-nav-title">
+                
+                    npm global install troubleshooting
+                
+            </div>
+        </a>
+    
     
         <a href="/2016/08/25/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
             <strong class="article-nav-caption">Older</strong>
@@ -400,6 +409,25 @@ ReactJS가 유명세를 타면서 많은 사람들이 ReactJS 기반의 앱 개"
         <h3 class="widget-title">recent</h3>
         <div class="widget">
             <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2016/08/29/npm-global-install-troubleshooting/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2016/08/29/npm-global-install-troubleshooting/" class="title">npm global install troubleshooting</a></p>
+                            <p class="item-date"><time datetime="2016-08-29T13:46:41.000Z" itemprop="datePublished">2016-08-29</time></p>
+                        </div>
+                    </li>
                 
                     <li>
                         
@@ -477,25 +505,6 @@ ReactJS가 유명세를 타면서 많은 사람들이 ReactJS 기반의 앱 개"
                         </div>
                     </li>
                 
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2016/08/18/ES6-7th-type-Symbol/" class="thumbnail">
-    
-    
-        <span class="thumbnail-image thumbnail-none"></span>
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/Javascript/">Javascript</a></p>
-                            <p class="item-title"><a href="/2016/08/18/ES6-7th-type-Symbol/" class="title">ES6의 7번째 타입 Symbol</a></p>
-                            <p class="item-date"><time datetime="2016-08-17T15:05:57.000Z" itemprop="datePublished">2016-08-18</time></p>
-                        </div>
-                    </li>
-                
             </ul>
         </div>
     </div>
@@ -514,7 +523,7 @@ ReactJS가 유명세를 타면서 많은 사람들이 ReactJS 기반의 앱 개"
     <div class="widget-wrap">
         <h3 class="widget-title">archives</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a><span class="archive-list-count">5</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a><span class="archive-list-count">6</span></li></ul>
         </div>
     </div>
 
@@ -523,7 +532,7 @@ ReactJS가 유명세를 타면서 많은 사람들이 ReactJS 기반의 앱 개"
     <div class="widget-wrap">
         <h3 class="widget-title">tags</h3>
         <div class="widget">
-            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/">ES6</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/">React</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Standard/">Standard</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tip/">Tip</a><span class="tag-list-count">1</span></li></ul>
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Babel/">Babel</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Build/">Build</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/">ES6</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/">React</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Standard/">Standard</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tip/">Tip</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/npm/">npm</a><span class="tag-list-count">1</span></li></ul>
         </div>
     </div>
 
@@ -532,7 +541,7 @@ ReactJS가 유명세를 타면서 많은 사람들이 ReactJS 기반의 앱 개"
     <div class="widget-wrap">
         <h3 class="widget-title">tag cloud</h3>
         <div class="widget tagcloud">
-            <a href="/tags/ES6/" style="font-size: 20px;">ES6</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/Standard/" style="font-size: 20px;">Standard</a> <a href="/tags/Tip/" style="font-size: 10px;">Tip</a>
+            <a href="/tags/Babel/" style="font-size: 10px;">Babel</a> <a href="/tags/Build/" style="font-size: 10px;">Build</a> <a href="/tags/ES6/" style="font-size: 20px;">ES6</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/Standard/" style="font-size: 15px;">Standard</a> <a href="/tags/Tip/" style="font-size: 10px;">Tip</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a>
         </div>
     </div>
 

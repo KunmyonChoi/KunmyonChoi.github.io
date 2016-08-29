@@ -3,17 +3,24 @@
 <head>
     <meta charset="utf-8">
     
-    <title>Archive | Everyday Programmer</title>
+    <title>npm global install troubleshooting | Everyday Programmer</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="Since 2006, as a software developer in LG Electronics, got various experiances on smart TV OS from Netcast to webOS. Member of EnyoJS open source project team. Swing dancer. Love dog, line dance and t">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Everyday Programmer">
-<meta property="og:url" content="http://kunmyonchoi.github.io/archives/index.html">
+    <meta name="description" content="NPM permission 문제 해결하기개발 중 global 스콥으로 npm module을 설치하려고 하는 경우 access permission error를 접하게 되는 경우가 있다.
+이런 경우 대부분은 공용 머신 이거나 mac과 같은 환경의 경우들이며, npm이 global 스콥으로 파일을 쓰려는 폴더에 접근 권한이 없는 것이 에러의 이유이다.
+오늘은 이">
+<meta property="og:type" content="article">
+<meta property="og:title" content="npm global install troubleshooting">
+<meta property="og:url" content="http://kunmyonchoi.github.io/2016/08/29/npm-global-install-troubleshooting/index.html">
 <meta property="og:site_name" content="Everyday Programmer">
-<meta property="og:description" content="Since 2006, as a software developer in LG Electronics, got various experiances on smart TV OS from Netcast to webOS. Member of EnyoJS open source project team. Swing dancer. Love dog, line dance and t">
+<meta property="og:description" content="NPM permission 문제 해결하기개발 중 global 스콥으로 npm module을 설치하려고 하는 경우 access permission error를 접하게 되는 경우가 있다.
+이런 경우 대부분은 공용 머신 이거나 mac과 같은 환경의 경우들이며, npm이 global 스콥으로 파일을 쓰려는 폴더에 접근 권한이 없는 것이 에러의 이유이다.
+오늘은 이">
+<meta property="og:updated_time" content="2016-08-29T13:50:51.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Everyday Programmer">
-<meta name="twitter:description" content="Since 2006, as a software developer in LG Electronics, got various experiances on smart TV OS from Netcast to webOS. Member of EnyoJS open source project team. Swing dancer. Love dog, line dance and t">
+<meta name="twitter:title" content="npm global install troubleshooting">
+<meta name="twitter:description" content="NPM permission 문제 해결하기개발 중 global 스콥으로 npm module을 설치하려고 하는 경우 access permission error를 접하게 되는 경우가 있다.
+이런 경우 대부분은 공용 머신 이거나 mac과 같은 환경의 경우들이며, npm이 global 스콥으로 파일을 쓰려는 폴더에 접근 권한이 없는 것이 에러의 이유이다.
+오늘은 이">
     
 
     
@@ -196,25 +203,22 @@
 </aside>
 
             
-            <section id="main"><div class="timeline timeline-wrap">
-    
-            <div class="timeline-row timeline-row-major">
-                <span class="node"><i class="fa fa-calendar"></i></span>
-                <h1 class="title">2016</h1>
-            </div>
+            <section id="main"><article id="post-npm-global-install-troubleshooting" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
         
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
+        
+        
+            <header class="article-header">
                 
     
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2016/08/29/npm-global-install-troubleshooting/">npm global install troubleshooting</a>
+        <h1 class="article-title" itemprop="name">
+            npm global install troubleshooting
         </h1>
     
 
-                <div class="article-meta">
-                    
+                
+                    <div class="article-meta">
+                        
     <div class="article-date">
         <i class="fa fa-calendar"></i>
         <a href="/2016/08/29/npm-global-install-troubleshooting/">
@@ -223,151 +227,151 @@
     </div>
 
 
-                    
-                    
+                        
+                        
     <div class="article-tag">
         <i class="fa fa-tag"></i>
         <a class="tag-link" href="/tags/npm/">npm</a>
     </div>
 
-                </div>
-            </div>
-        </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
+                    </div>
                 
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2016/08/26/Setup-React-with-webpack-and-babel/">Setup React with webpack and babel</a>
-        </h1>
-    
+            </header>
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <h1 id="NPM-permission-문제-해결하기"><a href="#NPM-permission-문제-해결하기" class="headerlink" title="NPM permission 문제 해결하기"></a>NPM permission 문제 해결하기</h1><p>개발 중 global 스콥으로 npm module을 설치하려고 하는 경우 access permission error를 접하게 되는 경우가 있다.</p>
+<p>이런 경우 대부분은 공용 머신 이거나 mac과 같은 환경의 경우들이며, npm이 global 스콥으로 파일을 쓰려는 폴더에 접근 권한이 없는 것이 에러의 이유이다.</p>
+<p>오늘은 이런 문제를 만날 경우 해결할 수 있는 방법을 알아 보도록 하겠다.</p>
+<p>EACCESS error는 다음과 같이 3가지 방법으로 해결이 가능하다.</p>
+<h2 id="Option-1-npm의-기본-디렉터리-권한을-변경한다"><a href="#Option-1-npm의-기본-디렉터리-권한을-변경한다" class="headerlink" title="Option 1: npm의 기본 디렉터리 권한을 변경한다."></a>Option 1: npm의 기본 디렉터리 권한을 변경한다.</h2><h3 id="1-npm의-디렉터리-상태를-확인한다"><a href="#1-npm의-디렉터리-상태를-확인한다" class="headerlink" title="1. npm의 디렉터리 상태를 확인한다."></a>1. npm의 디렉터리 상태를 확인한다.</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm config get prefix</div></pre></td></tr></table></figure>
+<p>많은 경우 /uer/local일 것이다. 만약 /usr로 되어 있다면 option 2로 해결해야 한다.</p>
+<h3 id="2-npm의-디렉터리에-owner를-현재-사용자로-설정한다"><a href="#2-npm의-디렉터리에-owner를-현재-사용자로-설정한다" class="headerlink" title="2. npm의 디렉터리에 owner를 현재 사용자로 설정한다."></a>2. npm의 디렉터리에 owner를 현재 사용자로 설정한다.</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo chown -R $(whoami) $(npm config get prefix)/&#123;lib/node_modules,bin,share&#125;</div></pre></td></tr></table></figure>
+<p>이 변경은 하위 폴더의 권한 까지 모두 변경한다.</p>
+<h2 id="Option-2-npm의-기본-디렉터리를-다른-디렉터리로-변경한다"><a href="#Option-2-npm의-기본-디렉터리를-다른-디렉터리로-변경한다" class="headerlink" title="Option 2: npm의 기본 디렉터리를 다른 디렉터리로 변경한다."></a>Option 2: npm의 기본 디렉터리를 다른 디렉터리로 변경한다.</h2><p>/usr와 같이 공통 디렉터리의 owner를 변경하지 말아야 할 경우 이 방법을 사용한다.</p>
+<h3 id="1-hidden-디렉터리를-생성한다"><a href="#1-hidden-디렉터리를-생성한다" class="headerlink" title="1. hidden 디렉터리를 생성한다."></a>1. hidden 디렉터리를 생성한다.</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mkdir ~/.npm-global</div></pre></td></tr></table></figure>
+<h3 id="2-npm의-기본-폴더를-변경한다"><a href="#2-npm의-기본-폴더를-변경한다" class="headerlink" title="2. npm의 기본 폴더를 변경한다."></a>2. npm의 기본 폴더를 변경한다.</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm config set prefix &apos;~/.npm-global&apos;</div></pre></td></tr></table></figure>
+<h3 id="3-profile-파일을-생성하고-아래-내용을-추가한다"><a href="#3-profile-파일을-생성하고-아래-내용을-추가한다" class="headerlink" title="3. ~/.profile 파일을 생성하고 아래 내용을 추가한다."></a>3. ~/.profile 파일을 생성하고 아래 내용을 추가한다.</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">export PATH=~/.npm-global/bin;$PATH</div></pre></td></tr></table></figure>
+<h3 id="4-command-line에서-아래를-수행한다"><a href="#4-command-line에서-아래를-수행한다" class="headerlink" title="4. command line에서 아래를 수행한다."></a>4. command line에서 아래를 수행한다.</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">source ~/.profile</div></pre></td></tr></table></figure>
+<p>이제 아래 명령으로 sudo 없이 global 설치가 되는지 확인한다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install -g jshint</div></pre></td></tr></table></figure>
+<p>~/.profile  파일 내용 변경을 원치 않는 경우 2~4 단계 대신 아래 명령으로 환경 변수를 바꾼다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">NPM_CONFIG_PREFIX=~/.npm-global</div></pre></td></tr></table></figure>
+<h2 id="Option-3-위-내용을-대신-해결해-주는-package-manager를-사용한다"><a href="#Option-3-위-내용을-대신-해결해-주는-package-manager를-사용한다" class="headerlink" title="Option 3:  위 내용을 대신 해결해 주는 package manager를 사용한다."></a>Option 3:  위 내용을 대신 해결해 주는 package manager를 사용한다.</h2><p>mac의 경우 Homebrew를 통해 fresh 설치하는 경우라면 위와 같은 작업이 필요하지 않다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew install node</div></pre></td></tr></table></figure>
+<p>참고) <a href="https://docs.npmjs.com/getting-started/fixing-npm-permissions" target="_blank" rel="external">원문</a></p>
 
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2016/08/26/Setup-React-with-webpack-and-babel/">
-            <time datetime="2016-08-25T15:03:17.000Z" itemprop="datePublished">2016-08-26</time>
-        </a>
-    </div>
-
-
-                    
-                    
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/Babel/">Babel</a>, <a class="tag-link" href="/tags/Build/">Build</a>, <a class="tag-link" href="/tags/ES6/">ES6</a>, <a class="tag-link" href="/tags/React/">React</a>
-    </div>
-
-                </div>
-            </div>
+        
         </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
-                
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2016/08/25/hello-world/">Hello World</a>
-        </h1>
-    
-
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2016/08/25/hello-world/">
-            <time datetime="2016-08-25T14:24:24.000Z" itemprop="datePublished">2016-08-25</time>
-        </a>
-    </div>
+        <footer class="article-footer">
+            <div class="share-container">
 
 
-                    
-                    
-                </div>
-            </div>
-        </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
-                
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2016/08/18/about-export-default/">export default에 대해</a>
-        </h1>
-    
 
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2016/08/18/about-export-default/">
-            <time datetime="2016-08-17T15:50:33.000Z" itemprop="datePublished">2016-08-18</time>
-        </a>
-    </div>
-
-
-                    
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Javascript/">Javascript</a>
-    </div>
-
-                    
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/ES6/">ES6</a>, <a class="tag-link" href="/tags/Standard/">Standard</a>
-    </div>
-
-                </div>
-            </div>
-        </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
-                
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2016/08/18/Easy-Array-Cloning/">Easy Array Cloning</a>
-        </h1>
-    
-
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2016/08/18/Easy-Array-Cloning/">
-            <time datetime="2016-08-17T15:25:05.000Z" itemprop="datePublished">2016-08-18</time>
-        </a>
-    </div>
-
-
-                    
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Javascript/">Javascript</a>
-    </div>
-
-                    
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/Tip/">Tip</a>
-    </div>
-
-                </div>
-            </div>
-        </div>
-    
 </div>
 
-    <nav id="page-nav">
-        <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="extend next" rel="next" href="/archives/page/2/">Next &raquo;</a>
-    </nav>
+    <a data-url="http://kunmyonchoi.github.io/2016/08/29/npm-global-install-troubleshooting/" data-id="cisg3posi00070k2vm38thd4j" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="http://kunmyonchoi.github.io/2016/08/29/npm-global-install-troubleshooting/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://kunmyonchoi.github.io/2016/08/29/npm-global-install-troubleshooting/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/2016/08/26/Setup-React-with-webpack-and-babel/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Older</strong>
+            <div class="article-nav-title">Setup React with webpack and babel</div>
+        </a>
+    
+</nav>
+
+
+    
+</article>
+
+
+    
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+    
+    </section>
+
 </section>
             
                 <aside id="sidebar">
@@ -547,11 +551,13 @@
     <script>
     var disqus_config = function () {
         
-        this.page.identifier = 'undefined';
+            this.page.url = 'http://kunmyonchoi.github.io/2016/08/29/npm-global-install-troubleshooting/';
+        
+        this.page.identifier = 'npm-global-install-troubleshooting';
     };
     (function() { 
         var d = document, s = d.createElement('script');  
-        s.src = '//' + 'kmgithub' + '.disqus.com/count.js';
+        s.src = '//' + 'kmgithub' + '.disqus.com/embed.js';
         s.setAttribute('data-timestamp', +new Date());
         (d.head || d.body).appendChild(s);
     })();
