@@ -3,17 +3,27 @@
 <head>
     <meta charset="utf-8">
     
-    <title>Tag: npm | Everyday Programmer</title>
+    <title>ES6 Object Literal Features | Everyday Programmer</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="Since 2006, as a software developer in LG Electronics, got various experiances on smart TV OS from Netcast to webOS. Member of EnyoJS open source project team. Swing dancer. Love dog, line dance and t">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Everyday Programmer">
-<meta property="og:url" content="http://kunmyonchoi.github.io/tags/npm/index.html">
+    <meta name="description" content="Property Value Shorthands먼저 아래 코드를 보면서 이야기를 시작해 보도록 하겠습니다.
+Example1234var foo = &amp;apos;bar&amp;apos;var baz = &amp;#123; foo &amp;#125;console.log(baz.foo)// &amp;lt;- &amp;apos;bar&amp;apos;
+위 코드에서 특이한 점이 보이시나요?
+우선 foo가 { fo">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ES6 Object Literal Features">
+<meta property="og:url" content="http://kunmyonchoi.github.io/2016/10/22/ES6-Object-Literal-Features/index.html">
 <meta property="og:site_name" content="Everyday Programmer">
-<meta property="og:description" content="Since 2006, as a software developer in LG Electronics, got various experiances on smart TV OS from Netcast to webOS. Member of EnyoJS open source project team. Swing dancer. Love dog, line dance and t">
+<meta property="og:description" content="Property Value Shorthands먼저 아래 코드를 보면서 이야기를 시작해 보도록 하겠습니다.
+Example1234var foo = &amp;apos;bar&amp;apos;var baz = &amp;#123; foo &amp;#125;console.log(baz.foo)// &amp;lt;- &amp;apos;bar&amp;apos;
+위 코드에서 특이한 점이 보이시나요?
+우선 foo가 { fo">
+<meta property="og:updated_time" content="2016-10-22T11:28:12.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Everyday Programmer">
-<meta name="twitter:description" content="Since 2006, as a software developer in LG Electronics, got various experiances on smart TV OS from Netcast to webOS. Member of EnyoJS open source project team. Swing dancer. Love dog, line dance and t">
+<meta name="twitter:title" content="ES6 Object Literal Features">
+<meta name="twitter:description" content="Property Value Shorthands먼저 아래 코드를 보면서 이야기를 시작해 보도록 하겠습니다.
+Example1234var foo = &amp;apos;bar&amp;apos;var baz = &amp;#123; foo &amp;#125;console.log(baz.foo)// &amp;lt;- &amp;apos;bar&amp;apos;
+위 코드에서 특이한 점이 보이시나요?
+우선 foo가 { fo">
     
 
     
@@ -196,45 +206,172 @@
 </aside>
 
             
-            <section id="main">
-<div class="timeline timeline-wrap">
-    <div class="timeline-row timeline-row-major">
-        <span class="node"><i class="fa fa-tag"></i></span>
-        <h1 class="title">#npm</h1>
-    </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
+            <section id="main"><article id="post-ES6-Object-Literal-Features" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+        
+            <header class="article-header">
                 
     
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2016/08/29/npm-global-install-troubleshooting/">npm global install troubleshooting</a>
+        <h1 class="article-title" itemprop="name">
+            ES6 Object Literal Features
         </h1>
     
 
-                <div class="article-meta">
-                    
+                
+                    <div class="article-meta">
+                        
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2016/08/29/npm-global-install-troubleshooting/">
-            <time datetime="2016-08-29T13:46:41.000Z" itemprop="datePublished">2016-08-29</time>
+        <a href="/2016/10/22/ES6-Object-Literal-Features/">
+            <time datetime="2016-10-22T10:40:35.000Z" itemprop="datePublished">2016-10-22</time>
         </a>
     </div>
 
 
-                    
-                    
+                        
+                        
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/npm/">npm</a>
+        <a class="tag-link" href="/tags/ES6/">ES6</a>, <a class="tag-link" href="/tags/STANDARD/">STANDARD</a>
     </div>
 
-                </div>
-            </div>
+                    </div>
+                
+            </header>
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <h3 id="Property-Value-Shorthands"><a href="#Property-Value-Shorthands" class="headerlink" title="Property Value Shorthands"></a>Property Value Shorthands</h3><p>먼저 아래 코드를 보면서 이야기를 시작해 보도록 하겠습니다.</p>
+<figure class="highlight plain"><figcaption><span>Example</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var foo = &apos;bar&apos;</div><div class="line">var baz = &#123; foo &#125;</div><div class="line">console.log(baz.foo)</div><div class="line">// &lt;- &apos;bar&apos;</div></pre></td></tr></table></figure>
+<p>위 코드에서 특이한 점이 보이시나요?</p>
+<p>우선 <code>foo</code>가 <code>{ foo }</code> 형태로 <code>baz</code>에 할당되는 것을 해석해 보면 <code>{ foo : foo }</code>를 짧게 줄여서(shorthands) 쓴 것으로 이해할 수 있습니다.</p>
+<p>다시 말해, <code>var baz = { foo }</code>는 아래와 같은 순서로 바꿔가며 해석될 수 있습니다.</p>
+<figure class="highlight plain"><figcaption><span>Equivalents</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var baz = &#123; foo &#125;</div><div class="line">var baz = &#123; foo : foo &#125;</div><div class="line">var baz = &#123; foo : &apos;bar&apos; &#125;</div></pre></td></tr></table></figure>
+<p>결국 처음 코드는 아래와 동일한 코드로 볼 수 있습니다.</p>
+<figure class="highlight plain"><figcaption><span>Example</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var baz = &#123; foo: &apos;bar&apos; &#125;</div><div class="line">console.log(baz.foo)</div><div class="line">// &lt;- &apos;bar&apos;</div></pre></td></tr></table></figure>
+<h3 id="Computed-Property-Names"><a href="#Computed-Property-Names" class="headerlink" title="Computed Property Names"></a>Computed Property Names</h3><p>우선 아래 코드는 Hash 객체에 key를 변수 형태로 지정하기 위해 많이 사용되는 패턴 입니다.</p>
+<figure class="highlight plain"><figcaption><span>Use variable as a hash key</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var foo = &apos;bar&apos;</div><div class="line">var baz = &#123;&#125;</div><div class="line">baz[foo] = &apos;ponyfoo&apos;</div><div class="line">console.log(baz)</div><div class="line">// &lt;- &#123; bar: &apos;ponyfoo&apos; &#125;</div></pre></td></tr></table></figure>
+<p>computed property name은 일반적인 property name 대신 대괄호 안에 쌓여진 표현식 사용할 수 있게 해줍니다. 대괄호 안의 표현식이 <code>계산</code>된 결과가 최종적인 property name으로 사용 됩니다.</p>
+<p>computed property name의 한가지 단점은 앞에서 설명한 shorthand 표현식을 사용할 수 없다는 점입니다.</p>
+<figure class="highlight plain"><figcaption><span>Syntax Error</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var foo = &apos;bar&apos;</div><div class="line">var bar = &apos;ponyfoo&apos;</div><div class="line">var baz = &#123; [foo] &#125;</div><div class="line">console.log(baz)</div><div class="line">// &lt;- SyntaxError</div></pre></td></tr></table></figure>
+<p>이 기능의 가장 빈번한 사용 예는 아래 케이스가 아닐까 싶습니다. 이 코드는 Computed Property Names를 사용하고 있으며 Computed Property Names를 사용하지 않았을 때와 비교해 3 스탭을 한 줄로 적을 수 있습니다.</p>
+<figure class="highlight plain"><figcaption><span>Common use case</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">function getModel (type) &#123;</div><div class="line">  return &#123;</div><div class="line">    [type]: &#123;</div><div class="line">      message: &apos;hello, this is doge&apos;,</div><div class="line">      date: new Date()</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>간략해 보이지 않나요?</p>
+<p>참고) <a href="https://ponyfoo.com/articles/es6-object-literal-features-in-depth#computed-property-names" target="_blank" rel="external">https://ponyfoo.com/articles/es6-object-literal-features-in-depth#computed-property-names</a> 글을 번역한 내용에 기반 합니다.</p>
+
+        
         </div>
-    
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
 </div>
+
+    <a data-url="http://kunmyonchoi.github.io/2016/10/22/ES6-Object-Literal-Features/" data-id="ciul4hxmq00027w2v7hwgxud4" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="http://kunmyonchoi.github.io/2016/10/22/ES6-Object-Literal-Features/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://kunmyonchoi.github.io/2016/10/22/ES6-Object-Literal-Features/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/2016/10/22/CSS-Multiple-Backgrounds/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Older</strong>
+            <div class="article-nav-title">CSS3 Multiple Backgrounds</div>
+        </a>
+    
+</nav>
+
+
+    
+</article>
+
+
+    
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+    
+    </section>
+
 </section>
             
                 <aside id="sidebar">
@@ -414,11 +551,13 @@
     <script>
     var disqus_config = function () {
         
-        this.page.identifier = 'undefined';
+            this.page.url = 'http://kunmyonchoi.github.io/2016/10/22/ES6-Object-Literal-Features/';
+        
+        this.page.identifier = 'ES6-Object-Literal-Features';
     };
     (function() { 
         var d = document, s = d.createElement('script');  
-        s.src = '//' + 'kmgithub' + '.disqus.com/count.js';
+        s.src = '//' + 'kmgithub' + '.disqus.com/embed.js';
         s.setAttribute('data-timestamp', +new Date());
         (d.head || d.body).appendChild(s);
     })();
